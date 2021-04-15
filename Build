@@ -18,5 +18,6 @@ compile => test => package
 * compile : src/main/java 디렉토리 아래의 모든 소스 코드가 컴파일 된다.
 * test : src/test/java , src/test/resources 테스트 자원 복사 및 소스 코드 컴파일 된다. ※ junit : 단위 테스트 프레임워크. 테스트 단계를 거치기 위해 의존 설정을 해준다.
 * packaging : 컴파일과 테스트가 완료 된 후,jar,war 같은 형태로 압축하는 작업.
+```
 
 
