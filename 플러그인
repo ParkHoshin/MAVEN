@@ -1,0 +1,59 @@
+<plugins>
+      ----------받아온 라이브러리를 기계어로 컴파일 해주는 플러그인------------
+			<plugin> 
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+      --------------------project 의 output(module, site documentation, resource, etc..)을 단일 파일로 만들어 주는 plugin으로 zip, tar, tar.gz, tar.bz2, jar, dir, war 포맷을 지원함--------------------
+			<plugin>
+				<!-- mvn assembly:single -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>src</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+      -------------------베포파일인 ROOT파일에 관련된 플러그인--------------------------
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<warName>ROOT</warName>
+					<webResources>
+						<resource>
+							<directory>${project.basedir}/src/main/resources-${buildType}</directory>
+							<targetPath>/WEB-INF/classes</targetPath>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+      ---------------환경(개발,운영) 별로 사용할 프로퍼티를 나누는 플러그인------------------
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<overwrite>true</overwrite>
+				</configuration>
+			</plugin>
+      -------------------TomcatManager에 원격으로 접속하여 배포할수있도록 해주는 ----------------------
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<path>/</path>
+					<port>80</port>
+					<uriEncoding>utf-8</uriEncoding>
+				</configuration>
+			</plugin>
+		</plugins>
