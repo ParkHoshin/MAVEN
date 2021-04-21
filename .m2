@@ -19,7 +19,7 @@ pom.xml에서의 세팅.(신한 기준)
  </repositories>   
  
  
-<repository>
+		<repository>
 			<id>mvn2</id>
 			<url>http://repo1.maven.org/maven2/</url>    --------------->기존 글로벌 로컬 디렉토리
 			<releases>
@@ -31,7 +31,7 @@ pom.xml에서의 세팅.(신한 기준)
 		</repository>
 		<repository>
 			<id>java.net2</id>
-			<name>Repository hosting the jee6 artifacts</name>
+			<name>Repository hosting the jee6 artifacts</name> ------------------------
 			<url>http://download.java.net/maven/2</url>
 		</repository>
 		<repository>
